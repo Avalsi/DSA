@@ -33,13 +33,11 @@ var MaxBinaryHeap = /** @class */ (function () {
         this.swapIndices(0);
         //pop from the values so you can return the value at the end
         var result = this.values.pop();
-        console.log(result, 'result');
         var index = 0;
         //find index of right (2*index + 1) and left (2*index + 2) child, if they exist
         while (index >= 0) {
             //find which child is greater
             var childIdx = this.findBiggerChildIdx(index);
-            console.log(childIdx, 'child index');
             //swap with largest child if it's greater than the element
             if (childIdx > 0) {
                 if (this.values[index] < this.values[childIdx]) {
@@ -73,10 +71,10 @@ var MaxBinaryHeap = /** @class */ (function () {
                 return rightChildIdx;
             }
         }
-        else if (rightChildIdx < maxIndex) {
+        else if (rightChildIdx <= maxIndex) {
             return rightChildIdx;
         }
-        else if (leftChildIdx < maxIndex) {
+        else if (leftChildIdx <= maxIndex) {
             return leftChildIdx;
         }
         else {
@@ -85,8 +83,8 @@ var MaxBinaryHeap = /** @class */ (function () {
     };
     return MaxBinaryHeap;
 }());
-var heap = new MaxBinaryHeap();
-heap.values = [41, 39, 33, 18, 27, 12];
-heap.insert(55);
-console.log(heap.extractMax());
-console.log(heap.values);
+// let heap = new MaxBinaryHeap();
+// heap.values = [41, 39, 33, 18, 27, 12];
+// heap.insert(55);
+// console.log(heap.extractMax());
+// console.log(heap.values);

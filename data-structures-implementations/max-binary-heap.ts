@@ -37,7 +37,7 @@ class MaxBinaryHeap {
     this.swapIndices(0);
     //pop from the values so you can return the value at the end
     const result = this.values.pop();
-    console.log(result, 'result')
+    
     let index = 0;
 
     //find index of right (2*index + 1) and left (2*index + 2) child, if they exist
@@ -45,7 +45,7 @@ class MaxBinaryHeap {
     
         //find which child is greater
         let childIdx = this.findBiggerChildIdx(index);
-        console.log(childIdx, 'child index')
+      
         //swap with largest child if it's greater than the element
         if(childIdx > 0){
           if(this.values[index] < this.values[childIdx]){
@@ -80,9 +80,9 @@ class MaxBinaryHeap {
       } else if (rightChild > leftChild){
         return rightChildIdx
       }
-    } else if (rightChildIdx < maxIndex) {
+    } else if (rightChildIdx <= maxIndex) {
       return rightChildIdx;
-    } else if (leftChildIdx < maxIndex) {
+    } else if (leftChildIdx <= maxIndex) {
       return leftChildIdx;
     } else {
         return -1
@@ -90,8 +90,8 @@ class MaxBinaryHeap {
     
   }
 }
-let heap = new MaxBinaryHeap();
-heap.values = [41, 39, 33, 18, 27, 12];
-heap.insert(55);
-console.log(heap.extractMax());
-console.log(heap.values);
+// let heap = new MaxBinaryHeap();
+// heap.values = [41, 39, 33, 18, 27, 12];
+// heap.insert(55);
+// console.log(heap.extractMax());
+// console.log(heap.values);
